@@ -1,16 +1,32 @@
-server:
-  port: 8005
 spring:
   profiles:
     active:
       - dev
+
 ---
+
+server:
+  port: 8005
 spring:
   profiles: dev
   application:
-    name: microservice-config-client-dev
+    name: microservice-config-client
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka01:7001/eureka/
+
 ---
+
+server:
+  port: 8006
 spring:
   profiles: test
   application:
-    name: microservice-config-client-test
+    name: microservice-config-client
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka02:7002/eureka/
